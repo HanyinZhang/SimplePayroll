@@ -1,3 +1,4 @@
 .idea/
-sample.csv
+*.pyc
+*.csv
 db.sqlite3
