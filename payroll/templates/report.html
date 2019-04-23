@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/report.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="title_block">
+    <div class="title">Payroll Report</div>
+    <div></div><a href="{% url 'upload' %}">Upload file</a></div>
+  </div>
+  {% if report %}
+  <table>
+    <tr>
+      <th>Employee ID</th>
+      <th>Pay Period</th>
+      <th>Amount Paid</th>
+    </tr>
+    {% for row in report %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.period }}</td>
+        <td>{{ row.amount }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <div class="no_data">No Data Found</div>
+  {% endif %}
+{% endblock %}

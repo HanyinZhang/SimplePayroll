@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if error %}
+    <div>Upload failed! ({{ error }})</div>
+  {% else %}
+    <div>Your time report has been upload successfully!</div>
+  {% endif %}
+  <p><a href="{% url 'report' %}">Return to home</a></p>
+{% endblock %}
